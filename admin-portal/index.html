@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notifications Admin</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <header>
+        <h1>InApp Notifications Admin</h1>
+    </header>
+
+    <main>
+
+        <section class="card">
+            <h2 id="formTitle">Create Notification</h2>
+            <form id="notifForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input id="title" type="text" placeholder="e.g. Welcome!" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="targetScreen">Target Screen</label>
+                        <input id="targetScreen" type="text" placeholder="e.g. home" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="3" placeholder="Notification message..." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="audience">Audience</label>
+                        <select id="audience">
+                            <option value="all">All</option>
+                            <option value="regular">Regular</option>
+                            <option value="premium">Premium</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="startDate">Start Date <span class="optional">(optional)</span></label>
+                        <input id="startDate" type="date" />
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate">End Date <span class="optional">(optional)</span></label>
+                        <input id="endDate" type="date" />
+                    </div>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input id="showOnce" type="checkbox" />
+                        Show Once per user
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="btnSubmit">Create</button>
+                    <button type="button" class="btn btn-secondary" id="btnCancel">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>All Notifications</h2>
+            <div id="tableWrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Screen</th>
+                            <th>Audience</th>
+                            <th>Show Once</th>
+                            <th>Status</th>
+                            <th>Views</th>
+                            <th>Clicks</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr><td colspan="8" class="empty">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
