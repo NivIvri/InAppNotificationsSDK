@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Quickstart - InApp Notifications SDK</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 860px; margin: 40px auto; padding: 0 24px; color: #333; line-height: 1.6; }
+        h1 { color: #1a73e8; }
+        h2 { margin-top: 36px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+        h3 { margin-top: 24px; color: #444; }
+        nav { background: #f5f5f5; padding: 12px 16px; border-radius: 6px; margin-bottom: 32px; }
+        nav a { margin-right: 20px; color: #1a73e8; text-decoration: none; font-size: 14px; }
+        nav a:hover { text-decoration: underline; }
+        code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+        pre { background: #f8f8f8; border: 1px solid #ddd; padding: 16px; border-radius: 6px; overflow-x: auto; font-size: 14px; }
+        .step { display: flex; gap: 16px; margin-bottom: 24px; }
+        .step-num { background: #1a73e8; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+        .step-body { flex: 1; }
+        .step-body p { margin: 4px 0 8px 0; }
+        .note { background: #fff8e1; border-left: 4px solid #f9a825; padding: 10px 14px; font-size: 14px; margin: 16px 0; }
+        .success { background: #e8f5e9; border-left: 4px solid #43a047; padding: 10px 14px; font-size: 14px; margin: 16px 0; }
+    </style>
+</head>
+<body>
+
+<h1>Quickstart</h1>
+<p>Follow these steps to get everything running locally.</p>
+
+<nav>
+    <a href="index.html">Overview</a>
+    <a href="quickstart.html">Quickstart</a>
+    <a href="api-reference.html">API Reference</a>
+</nav>
+
+<h2>1. Set Up Firebase</h2>
+
+<div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+        <p>Go to <a href="https://console.firebase.google.com" target="_blank">console.firebase.google.com</a> and open your project.</p>
+    </div>
+</div>
+
+<div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+        <p>In the left sidebar: <strong>Build → Firestore Database → Create database</strong></p>
+        <p>Choose <em>Start in test mode</em>, pick a region, click Enable.</p>
+    </div>
+</div>
+
+<div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+        <p>Go to <strong>Project Settings → Service Accounts → Generate new private key</strong></p>
+        <p>Save the downloaded file as <code>backend/serviceAccountKey.json</code></p>
+    </div>
+</div>
+
+<div class="note">
+    Never commit <code>serviceAccountKey.json</code> — it's already in <code>backend/.gitignore</code>.
+</div>
+
+<h2>2. Run the Backend</h2>
+
+<div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+        <p>Open a terminal and go to the <code>backend/</code> folder.</p>
+    </div>
+</div>
+
+<div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+        <p>Create and activate a virtual environment:</p>
+        <pre>python -m venv venv
+venv\Scripts\activate.bat</pre>
+    </div>
+</div>
+
+<div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+        <p>Install dependencies:</p>
+        <pre>pip install -r requirements.txt</pre>
+    </div>
+</div>
+
+<div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+        <p>Start the server:</p>
+        <pre>python app.py</pre>
+        <p>You should see: <code>Running on http://127.0.0.1:5000</code></p>
+    </div>
+</div>
+
+<h2>3. Run the Admin Portal</h2>
+
+<p>Open <code>admin-portal/index.html</code> directly in a browser. No server needed.</p>
+<p>The portal connects to <code>http://localhost:5000</code> automatically.</p>
+
+<div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+        <p>Fill in the form to create a notification. Example values:</p>
+        <pre>Title:         Welcome!
+Message:       Thanks for using our app.
+Target Screen: home
+Audience:      all
+Start Date:    (leave empty — defaults to today)
+End Date:      (leave empty — no expiry)</pre>
+    </div>
+</div>
+
+<div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+        <p>Click <strong>Create</strong>. The notification appears in the table below.</p>
+    </div>
+</div>
+
+<h2>4. Run the Android App</h2>
+
+<div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+        <p>Open the project in Android Studio.</p>
+    </div>
+</div>
+
+<div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+        <p>In <code>app/src/main/.../demo/MainActivity.kt</code>, check the <code>BASE_URL</code>:</p>
+        <pre>// For emulator:
+const val BASE_URL = "http://10.0.2.2:5000/"
+
+// For real device (use your PC's local IP):
+const val BASE_URL = "http://192.168.1.x:5000/"</pre>
+    </div>
+</div>
+
+<div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+        <p>Run the app. Select a user type and tap <strong>Go to Home Screen</strong>.</p>
+        <p>The notification dialog should appear.</p>
+    </div>
+</div>
+
+<div class="success">
+    If the notification appears — everything is working correctly.
+</div>
+
+<h2>SDK Usage in Your Own App</h2>
+
+<p>To use the SDK in a different Android project:</p>
+
+<h3>Step 1 — Initialize (once, in your main activity)</h3>
+<pre>NotificationSdk.initialize("https://your-backend-url/")</pre>
+
+<h3>Step 2 — Show notifications on a screen</h3>
+<pre>// Call this in onResume() of any activity
+NotificationSdk.checkAndShow(this, "home", "regular")</pre>
+
+<p><strong>screen</strong> — matches the <code>targetScreen</code> field you set in the admin portal<br>
+<strong>userType</strong> — <code>"regular"</code>, <code>"premium"</code>, or <code>"all"</code></p>
+
+<h3>Step 3 — Reset seen notifications (optional)</h3>
+<pre>NotificationSdk.clearSeenNotifications(this)</pre>
+
+</body>
+</html>

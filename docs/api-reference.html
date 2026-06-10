@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>API Reference - InApp Notifications SDK</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 24px; color: #333; line-height: 1.6; }
+        h1 { color: #1a73e8; }
+        h2 { margin-top: 40px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+        nav { background: #f5f5f5; padding: 12px 16px; border-radius: 6px; margin-bottom: 32px; }
+        nav a { margin-right: 20px; color: #1a73e8; text-decoration: none; font-size: 14px; }
+        nav a:hover { text-decoration: underline; }
+        code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+        pre { background: #f8f8f8; border: 1px solid #ddd; padding: 16px; border-radius: 6px; overflow-x: auto; font-size: 14px; }
+        .endpoint { border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+        .endpoint-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .method { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 13px; font-weight: bold; color: white; }
+        .GET    { background: #34a853; }
+        .POST   { background: #1a73e8; }
+        .PUT    { background: #f9a825; color: #333; }
+        .PATCH  { background: #9c27b0; }
+        .DELETE { background: #ea4335; }
+        .url { font-family: monospace; font-size: 15px; font-weight: bold; }
+        .desc { font-size: 14px; color: #555; margin-bottom: 12px; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 8px; }
+        th { background: #f5f5f5; text-align: left; padding: 8px 10px; border-bottom: 2px solid #ddd; }
+        td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+        .required { color: #ea4335; font-size: 11px; font-weight: bold; }
+        .optional { color: #888; font-size: 11px; }
+    </style>
+</head>
+<body>
+
+<h1>API Reference</h1>
+<p>Base URL (local): <code>http://localhost:5000</code></p>
+
+<nav>
+    <a href="index.html">Overview</a>
+    <a href="quickstart.html">Quickstart</a>
+    <a href="api-reference.html">API Reference</a>
+</nav>
+
+<h2>Notification Object</h2>
+
+<p>This is the shape of a notification returned by the API:</p>
+<pre>{
+  "id":            "abc123",
+  "title":         "Welcome!",
+  "message":       "Thanks for using the app.",
+  "targetScreen":  "home",
+  "audience":      "all",
+  "isActive":      true,
+  "showOnce":      false,
+  "startDate":     "2024-01-01",
+  "endDate":       "2099-12-31",
+  "viewsCounter":  5,
+  "clicksCounter": 2
+}</pre>
+
+<h2>Endpoints</h2>
+
+<!-- GET /api/notifications -->
+<div class="endpoint">
+    <div class="endpoint-header">
+        <span class="method GET">GET</span>
+        <span class="url">/api/notifications</span>
+    </div>
+    <p class="desc">Returns active notifications filtered by screen and user type. Used by the Android SDK.</p>
+    <table>
+        <tr><th>Query Param</th><th>Description</th></tr>
+        <tr><td><code>screen</code> <span class="optional">optional</span></td><td>Filter by targetScreen value (e.g. "home")</td></tr>
+        <tr><td><code>userType</code> <span class="optional">optional</span></td><td>Filter by audience (e.g. "regular", "premium", "all")</td></tr>
+    </table>
+    <pre style="margin-top:12px">// Response
+{
+  "notifications": [ { ...notification }, ... ]
+}</pre>
+</div>
+
+<!-- GET /api/admin/notifications -->
+<div class="endpoint">
+    <div class="endpoint-header">
+        <span class="method GET">GET</span>
+        <span class="url">/api/admin/notifications</span>
+    </div>
+    <p class="desc">Returns all notifications including inactive ones. Used by the admin portal.</p>
+    <pre>{
+  "notifications": [ { ...notification }, ... ]
+}</pre>
+</div>
+
+<!-- GET /api/notifications/:id -->
+<div class="endpoint">
+    <div class="endpoint-header">
+        <span class="method GET">GET</span>
+        <span class="url">/api/notifications/:id</span>
+    </div>
+    <p class="desc">Returns a single notification by ID.</p>
+    <pre>// 200 OK
+{ ...notification }
+
+// 404 Not Found
+{ "error": "Notification not found" }</pre>
+</div>
+
+<!-- POST /api/notifications -->
+<div class="endpoint">
+    <div class="endpoint-header">
+        <span class="method POST">POST</span>
+        <span class="url">/api/notifications</span>
+    </div>
+    <p class="desc">Creates a new notification.</p>
+    <table>
+        <tr><th>Body Field</th><th>Type</th><th></th><th>Description</th></tr>
+        <tr><td><code>title</code></td><td>string</td><td><span class="required">required</span></td><td>Notification title</td></tr>
+        <tr><td><code>message</code></td><td>string</td><td><span class="required">required</span></td><td>Notification body text</td></tr>
+        <tr><td><code>targetScreen</code></td><td>string</td><td><span class="required">required</span></td><td>Screen name (e.g. "home")</td></tr>
+        <tr><td><code>audience</code></td><td>string</td><td><span class="required">required</span></td><td>"all", "regular", or "premium"</td></tr>
+        <tr><td><code>startDate</code></td><td>string</td><td><span class="required">required</span></td><td>YYYY-MM-DD format</td></tr>
+        <tr><td><code>endDate</code></td><td>string</td><td><span class="required">required</span></td><td>YYYY-MM-DD format</td></tr>
+        <tr><td><code>showOnce</code></td><td>boolean</td><td><span class="optional">optional</span></td><td>Default: false</td></tr>
+    </table>
+    <pre style="margin-top:12px">// 201 Created
+{ ...notification with id }</pre>
+</div>
+
+<!-- PUT /api/notifications/:id -->
+<div class="endpoint">
+    <div class="endpoint-header">
+        <span class="method PUT">PUT</span>
+        <span class="url">/api/notifications/:id</span>
+    </div>
+    <p class="desc">Updates an existing notification. Send the full notification object in the body.</p>
+    <pre>// 200 OK
+{ ...updated notification }
+
+// 404 Not Found
+{ "error": "Notification not found" }</pre>
+</div>
+
+<!-- PATCH activate -->
+<div class="endpoint">
+    <div class="endpoint-header">
+        <span class="method PATCH">PATCH</span>
+        <span class="url">/api/notifications/:id/activate</span>
+    </div>
+    <p class="desc">Sets <code>isActive</code> to <code>true</code>.</p>
+    <pre>// 200 OK
+{ ...notification with isActive: true }</pre>
+</div>
+
+<!-- PATCH deactivate -->
+<div class="endpoint">
+    <div class="endpoint-header">
+        <span class="method PATCH">PATCH</span>
+        <span class="url">/api/notifications/:id/deactivate</span>
+    </div>
+    <p class="desc">Sets <code>isActive</code> to <code>false</code>.</p>
+    <pre>// 200 OK
+{ ...notification with isActive: false }</pre>
+</div>
+
+<!-- PATCH view -->
+<div class="endpoint">
+    <div class="endpoint-header">
+        <span class="method PATCH">PATCH</span>
+        <span class="url">/api/notifications/:id/view</span>
+    </div>
+    <p class="desc">Increments <code>viewsCounter</code> by 1. Called automatically by the SDK when a notification is shown.</p>
+    <pre>// 200 OK
+{ "success": true }</pre>
+</div>
+
+<!-- PATCH click -->
+<div class="endpoint">
+    <div class="endpoint-header">
+        <span class="method PATCH">PATCH</span>
+        <span class="url">/api/notifications/:id/click</span>
+    </div>
+    <p class="desc">Increments <code>clicksCounter</code> by 1. Called automatically by the SDK when the user taps "Learn More".</p>
+    <pre>// 200 OK
+{ "success": true }</pre>
+</div>
+
+<!-- DELETE -->
+<div class="endpoint">
+    <div class="endpoint-header">
+        <span class="method DELETE">DELETE</span>
+        <span class="url">/api/notifications/:id</span>
+    </div>
+    <p class="desc">Deletes a notification permanently.</p>
+    <pre>// 200 OK
+{ "success": true }
+
+// 404 Not Found
+{ "error": "Notification not found" }</pre>
+</div>
+
+</body>
+</html>

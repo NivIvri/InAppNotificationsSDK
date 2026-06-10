@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>InApp Notifications SDK - Docs</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 860px; margin: 40px auto; padding: 0 24px; color: #333; line-height: 1.6; }
+        h1 { color: #1a73e8; }
+        h2 { margin-top: 36px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+        nav { background: #f5f5f5; padding: 12px 16px; border-radius: 6px; margin-bottom: 32px; }
+        nav a { margin-right: 20px; color: #1a73e8; text-decoration: none; font-size: 14px; }
+        nav a:hover { text-decoration: underline; }
+        code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+        pre { background: #f8f8f8; border: 1px solid #ddd; padding: 16px; border-radius: 6px; overflow-x: auto; font-size: 14px; }
+        .component { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px 20px; margin-bottom: 16px; }
+        .component h3 { margin: 0 0 6px 0; font-size: 16px; }
+        .component p { margin: 0; font-size: 14px; color: #555; }
+        .note { background: #fff8e1; border-left: 4px solid #f9a825; padding: 10px 14px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<h1>InApp Notifications SDK</h1>
+<p>Course project — Android in-app notification system with a backend and admin portal.</p>
+
+<nav>
+    <a href="index.html">Overview</a>
+    <a href="quickstart.html">Quickstart</a>
+    <a href="api-reference.html">API Reference</a>
+</nav>
+
+<h2>What Is This?</h2>
+<p>
+    This project is an Android SDK that shows notification dialogs inside an app.
+    The notifications are stored in Firestore and managed through a web admin portal.
+    You can create, edit, and activate notifications without changing the app code.
+</p>
+
+<h2>How It Works</h2>
+<ol>
+    <li>You add the SDK to an Android app and call <code>checkAndShow()</code> on any screen</li>
+    <li>The SDK calls the backend with the screen name and user type</li>
+    <li>The backend checks Firestore for active, valid notifications that match</li>
+    <li>If one is found, it's shown as a dialog</li>
+    <li>The SDK tracks views and clicks back to the backend</li>
+</ol>
+
+<h2>Components</h2>
+
+<div class="component">
+    <h3>notification-sdk</h3>
+    <p>The Android library module. Contains the SDK code that gets included in any Android app.</p>
+</div>
+
+<div class="component">
+    <h3>app</h3>
+    <p>A demo Android app that shows how to use the SDK on different screens with different user types.</p>
+</div>
+
+<div class="component">
+    <h3>backend</h3>
+    <p>A Flask REST API that reads and writes notifications to Firestore. Also handles view and click tracking.</p>
+</div>
+
+<div class="component">
+    <h3>admin-portal</h3>
+    <p>A plain HTML/JS web page to create, edit, activate/deactivate, and delete notifications. Connects directly to the backend.</p>
+</div>
+
+<h2>Technologies Used</h2>
+<ul>
+    <li>Kotlin — Android SDK and demo app</li>
+    <li>Retrofit 2 — HTTP client for the SDK</li>
+    <li>Python + Flask — Backend API</li>
+    <li>Google Firestore — Database</li>
+    <li>Firebase Admin SDK — Backend Firestore access</li>
+    <li>HTML / CSS / JavaScript — Admin portal</li>
+</ul>
+
+<h2>Known Limitations</h2>
+<ul>
+    <li>No API authentication — the backend endpoints are open</li>
+    <li>showOnce is per-device, not per-user account</li>
+    <li>Only one notification is shown per screen visit</li>
+    <li>Backend is not deployed — runs locally only</li>
+    <li>No tests written</li>
+</ul>
+
+<div class="note">
+    The <code>serviceAccountKey.json</code> file is excluded from Git. You need to generate your own from Firebase Console to run the backend.
+</div>
+
+</body>
+</html>
