@@ -84,6 +84,7 @@ function startEdit(notification) {
     document.getElementById('startDate').value   = notification.startDate;
     document.getElementById('endDate').value     = notification.endDate;
     document.getElementById('showOnce').checked  = notification.showOnce;
+    document.getElementById('imageUrl').value    = notification.imageUrl || '';
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -114,7 +115,8 @@ function getFormData() {
         audience:     document.getElementById('audience').value,
         startDate:    document.getElementById('startDate').value || today,
         endDate:      document.getElementById('endDate').value || '2099-12-31',
-        showOnce:     document.getElementById('showOnce').checked
+        showOnce:     document.getElementById('showOnce').checked,
+        imageUrl:     document.getElementById('imageUrl').value.trim() || null
     };
 }
 

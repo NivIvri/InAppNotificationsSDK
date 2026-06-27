@@ -7,6 +7,43 @@ This was built as a course project to learn Android SDK development, REST APIs, 
 
 ---
 
+## Demo
+
+### App Demo Video
+
+[▶ Watch Demo Video](https://github.com/NivIvri/InAppNotificationsSDK/releases/download/demo/Screen_recording_20260627_135021.webm)
+
+The demo shows:
+- **Image notifications** — a notification with a banner image on the Home screen
+- **Audience targeting** — the Shop screen shows a different notification for Regular vs Premium users
+- **Show-once** — the Profile screen notification appears only on the first visit
+- **Reset** — clearing seen notifications from Settings makes the show-once notification appear again
+
+### Admin Portal — Notifications Used in the Demo
+
+The following notifications were created via the admin portal to power the demo above:
+
+| Screen | Audience | Title | Feature |
+|--------|----------|-------|---------|
+| Home | All | Welcome Back! | Image notification with banner |
+| Shop | Premium | Premium Exclusive! | Shown only to premium users |
+| Shop | Regular | Upgrade to Premium | Shown only to regular users |
+| Profile | All | Complete Your Profile | Show-once notification |
+
+
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/9d5dce7d-b4b8-41ce-915a-6f8a61b6a064" />
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/d0d27dcc-261b-4bc2-96a8-3edcb0d902ba" />
+
+## Documentation
+
+| Page | Description |
+|------|-------------|
+| [Overview](docs/index.html) | What the project is and how it works |
+| [Quickstart](docs/quickstart.html) | Step-by-step guide to run the backend, portal, and app |
+| [API Reference](docs/api-reference.html) | All backend endpoints with request/response details |
+
+---
+
 ## Main Features
 
 - Show a notification dialog on any screen in an Android app
@@ -36,6 +73,8 @@ InAppNotificationsSDK/
 │   └── src/main/java/.../demo/
 │       ├── MainActivity.kt
 │       ├── HomeScreenActivity.kt
+│       ├── ShopScreenActivity.kt
+│       ├── ProfileScreenActivity.kt
 │       └── SettingsScreenActivity.kt
 │
 ├── notification-sdk/           # The SDK module
@@ -79,15 +118,26 @@ Server runs at `http://localhost:5000`
 
 ---
 
-## How to Run the Admin Portal
+## Admin Portal
 
-The admin portal is a static HTML page. Just open it in a browser:
+The admin portal is a web interface for managing notifications without touching code or the database directly. It lets you create, edit, and control notifications in real time.
+
+**What you can do from the portal:**
+- Create a new notification with a title, message, target screen, audience, date range, and optional image URL
+- Edit any existing notification
+- Activate or deactivate notifications instantly — changes reflect in the app without a release
+- Delete notifications
+- See view and click counts for every notification
+
+**How to open it:**
+
+Make sure the backend is running first, then open the file directly in your browser:
 
 ```
 admin-portal/index.html
 ```
 
-Make sure the backend is running first. The portal connects to `http://localhost:5000`.
+The portal connects to `http://localhost:5000`.
 
 ---
 

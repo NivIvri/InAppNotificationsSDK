@@ -74,7 +74,25 @@
         android:id="@+id/btnHome"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="Go to Home Screen"
+        android:text="🏠  Home Screen"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnShop"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="🛍️  Shop Screen"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="👤  Profile Screen"
         android:backgroundTint="@color/colorPrimary"
         android:textColor="@color/white"
         android:layout_marginBottom="12dp" />
@@ -83,7 +101,7 @@
         android:id="@+id/btnSettings"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="Go to Settings Screen"
+        android:text="⚙️  Settings Screen"
         android:backgroundTint="@color/colorPrimary"
         android:textColor="@color/white" />
 

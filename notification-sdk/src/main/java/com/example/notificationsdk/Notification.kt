@@ -13,7 +13,8 @@ data class Notification(
     @SerializedName("audience") val audience: String,
     @SerializedName("showOnce") val showOnce: Boolean,
     @SerializedName("viewsCounter") val viewsCounter: Int,
-    @SerializedName("clicksCounter") val clicksCounter: Int
+    @SerializedName("clicksCounter") val clicksCounter: Int,
+    @SerializedName("imageUrl") val imageUrl: String? = null
 )
 
 data class NotificationsResponse(
