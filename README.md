@@ -30,8 +30,8 @@ The following notifications were created via the admin portal to power the demo 
 | Profile | All | Complete Your Profile | Show-once notification |
 
 
-<img width="1400" height="500" alt="image" src="https://github.com/user-attachments/assets/9d5dce7d-b4b8-41ce-915a-6f8a61b6a064" />
-<img width="1400" height="400" alt="image" src="https://github.com/user-attachments/assets/d0d27dcc-261b-4bc2-96a8-3edcb0d902ba" />
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/9d5dce7d-b4b8-41ce-915a-6f8a61b6a064" />
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/d0d27dcc-261b-4bc2-96a8-3edcb0d902ba" />
 
 ## Main Features
 
