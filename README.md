@@ -103,10 +103,6 @@ The admin portal is a web interface for managing notifications without touching 
 - Delete notifications
 - See view and click counts for every notification
 
-**Screenshots:**
-
-_Add screenshots here_
-
 **How to open it:**
 
 Make sure the backend is running first, then open the file directly in your browser:
