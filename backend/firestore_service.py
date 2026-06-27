@@ -12,19 +12,18 @@ def init_firestore():
 
 def get_all_notifications(screen=None, user_type=None):
     today = date.today().isoformat()
-    query = (
-        db.collection("notifications")
-          .where("isActive", "==", True)
-          .where("startDate", "<=", today)
-          .where("endDate", ">=", today)
-    )
-    if screen:
-        query = query.where("targetScreen", "in", [screen, "all"])
+    query = db.collection("notifications").where("isActive", "==", True)
 
     results = []
     for doc in query.stream():
         data = doc.to_dict()
         data["id"] = doc.id
+        if data.get("startDate", "") > today:
+            continue
+        if data.get("endDate", "") < today:
+            continue
+        if screen and data.get("targetScreen") not in (screen, "all"):
+            continue
         if user_type and data.get("audience") not in (user_type, "all"):
             continue
         results.append(data)
