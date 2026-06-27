@@ -8,7 +8,7 @@ This was built as a course project to learn Android SDK development, REST APIs, 
 
 ## Demo Video
 
-https://github.com/NivIvri/InAppNotificationsSDK/releases/download/demo/Screen_recording_20260627_135021.webm
+<video src="https://github.com/NivIvri/InAppNotificationsSDK/releases/download/demo/Screen_recording_20260627_135021.webm" controls width="400"></video>
 
 The demo shows:
 - **Image notifications** — a notification with a banner image on the Home screen
