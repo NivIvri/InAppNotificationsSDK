@@ -29,9 +29,9 @@ The following notifications were created via the admin portal to power the demo 
 | Shop | Regular | Upgrade to Premium | Shown only to regular users |
 | Profile | All | Complete Your Profile | Show-once notification |
 
-<!-- Add portal screenshots below -->
 
----
+<img width="1400" height="500" alt="image" src="https://github.com/user-attachments/assets/9d5dce7d-b4b8-41ce-915a-6f8a61b6a064" />
+<img width="1400" height="400" alt="image" src="https://github.com/user-attachments/assets/d0d27dcc-261b-4bc2-96a8-3edcb0d902ba" />
 
 ## Main Features
 
