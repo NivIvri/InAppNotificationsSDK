@@ -33,6 +33,16 @@ The following notifications were created via the admin portal to power the demo 
 <img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/9d5dce7d-b4b8-41ce-915a-6f8a61b6a064" />
 <img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/d0d27dcc-261b-4bc2-96a8-3edcb0d902ba" />
 
+## Documentation
+
+| Page | Description |
+|------|-------------|
+| [Overview](docs/index.html) | What the project is and how it works |
+| [Quickstart](docs/quickstart.html) | Step-by-step guide to run the backend, portal, and app |
+| [API Reference](docs/api-reference.html) | All backend endpoints with request/response details |
+
+---
+
 ## Main Features
 
 - Show a notification dialog on any screen in an Android app
