@@ -25,6 +25,20 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
+        findViewById<Button>(R.id.btnShop).setOnClickListener {
+            startActivity(
+                Intent(this, ShopScreenActivity::class.java)
+                    .putExtra(EXTRA_USER_TYPE, selectedUserType(radioGroup))
+            )
+        }
+
+        findViewById<Button>(R.id.btnProfile).setOnClickListener {
+            startActivity(
+                Intent(this, ProfileScreenActivity::class.java)
+                    .putExtra(EXTRA_USER_TYPE, selectedUserType(radioGroup))
+            )
+        }
+
         findViewById<Button>(R.id.btnSettings).setOnClickListener {
             startActivity(
                 Intent(this, SettingsScreenActivity::class.java)
