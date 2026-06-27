@@ -6,6 +6,18 @@ This was built as a course project to learn Android SDK development, REST APIs, 
 
 ---
 
+## Demo Video
+
+https://github.com/NivIvri/InAppNotificationsSDK/releases/download/demo/Screen_recording_20260627_135021.webm
+
+The demo shows:
+- **Image notifications** — a notification with a banner image on the Home screen
+- **Audience targeting** — the Shop screen shows a different notification for Regular vs Premium users
+- **Show-once** — the Profile screen notification appears only on the first visit
+- **Reset** — clearing seen notifications from Settings makes the show-once notification appear again
+
+---
+
 ## Main Features
 
 - Show a notification dialog on any screen in an Android app
