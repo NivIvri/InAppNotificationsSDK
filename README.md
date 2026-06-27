@@ -6,7 +6,9 @@ This was built as a course project to learn Android SDK development, REST APIs, 
 
 ---
 
-## Demo Video
+## Demo
+
+### App Demo Video
 
 [▶ Watch Demo Video](https://github.com/NivIvri/InAppNotificationsSDK/releases/download/demo/Screen_recording_20260627_135021.webm)
 
@@ -15,6 +17,19 @@ The demo shows:
 - **Audience targeting** — the Shop screen shows a different notification for Regular vs Premium users
 - **Show-once** — the Profile screen notification appears only on the first visit
 - **Reset** — clearing seen notifications from Settings makes the show-once notification appear again
+
+### Admin Portal — Notifications Used in the Demo
+
+The following notifications were created via the admin portal to power the demo above:
+
+| Screen | Audience | Title | Feature |
+|--------|----------|-------|---------|
+| Home | All | Welcome Back! | Image notification with banner |
+| Shop | Premium | Premium Exclusive! | Shown only to premium users |
+| Shop | Regular | Upgrade to Premium | Shown only to regular users |
+| Profile | All | Complete Your Profile | Show-once notification |
+
+<!-- Add portal screenshots below -->
 
 ---
 
