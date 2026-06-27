@@ -47,6 +47,8 @@ InAppNotificationsSDK/
 │   └── src/main/java/.../demo/
 │       ├── MainActivity.kt
 │       ├── HomeScreenActivity.kt
+│       ├── ShopScreenActivity.kt
+│       ├── ProfileScreenActivity.kt
 │       └── SettingsScreenActivity.kt
 │
 ├── notification-sdk/           # The SDK module
@@ -90,15 +92,30 @@ Server runs at `http://localhost:5000`
 
 ---
 
-## How to Run the Admin Portal
+## Admin Portal
 
-The admin portal is a static HTML page. Just open it in a browser:
+The admin portal is a web interface for managing notifications without touching code or the database directly. It lets you create, edit, and control notifications in real time.
+
+**What you can do from the portal:**
+- Create a new notification with a title, message, target screen, audience, date range, and optional image URL
+- Edit any existing notification
+- Activate or deactivate notifications instantly — changes reflect in the app without a release
+- Delete notifications
+- See view and click counts for every notification
+
+**Screenshots:**
+
+_Add screenshots here_
+
+**How to open it:**
+
+Make sure the backend is running first, then open the file directly in your browser:
 
 ```
 admin-portal/index.html
 ```
 
-Make sure the backend is running first. The portal connects to `http://localhost:5000`.
+The portal connects to `http://localhost:5000`.
 
 ---
 
