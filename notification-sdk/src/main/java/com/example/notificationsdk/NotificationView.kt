@@ -2,10 +2,13 @@ package com.example.notificationsdk
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDialog
+import coil.load
 
 class NotificationView(
     context: Context,
@@ -20,6 +23,12 @@ class NotificationView(
         window?.setBackgroundDrawableResource(android.R.color.transparent)
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setCancelable(false)
+
+        val imageView = findViewById<ImageView>(R.id.ivNotificationImage)!!
+        if (!notification.imageUrl.isNullOrBlank()) {
+            imageView.visibility = View.VISIBLE
+            imageView.load(notification.imageUrl)
+        }
 
         findViewById<TextView>(R.id.tvTitle)!!.text = notification.title
         findViewById<TextView>(R.id.tvMessage)!!.text = notification.message
